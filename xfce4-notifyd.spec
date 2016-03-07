@@ -4,7 +4,7 @@
 #
 Name     : xfce4-notifyd
 Version  : 0.2.4
-Release  : 2
+Release  : 3
 URL      : http://archive.xfce.org/src/apps/xfce4-notifyd/0.2/xfce4-notifyd-0.2.4.tar.bz2
 Source0  : http://archive.xfce.org/src/apps/xfce4-notifyd/0.2/xfce4-notifyd-0.2.4.tar.bz2
 Summary  : No detailed summary available
