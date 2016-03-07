@@ -1,0 +1,26 @@
+From 6087cede35bcc73ff4e55e5efc1a45caa20946cb Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <michael.i.doherty@intel.com>
+Date: Mon, 7 Mar 2016 08:25:51 +0000
+Subject: [PATCH] xfce4-notify: Set the default theme to Arc
+
+Signed-off-by: Ikey Doherty <michael.i.doherty@intel.com>
+---
+ xfce4-notifyd/xfce-notify-daemon.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/xfce4-notifyd/xfce-notify-daemon.c b/xfce4-notifyd/xfce-notify-daemon.c
+index ec2972a..2c7a2cc 100644
+--- a/xfce4-notifyd/xfce-notify-daemon.c
++++ b/xfce4-notifyd/xfce-notify-daemon.c
+@@ -1193,7 +1193,7 @@ xfce_notify_daemon_settings_changed(XfconfChannel *channel,
+         xfce_notify_daemon_set_theme(xndaemon,
+                                      G_VALUE_TYPE(value)
+                                      ? g_value_get_string(value)
+-                                     : "Default");
++                                     : "Arc");
+     } else if(!strcmp(property, "/notify-location")) {
+         xndaemon->notify_location = G_VALUE_TYPE(value)
+                                   ? g_value_get_uint(value)
+-- 
+2.7.1
+
