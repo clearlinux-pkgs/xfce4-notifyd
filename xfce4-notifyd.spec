@@ -4,7 +4,7 @@
 #
 Name     : xfce4-notifyd
 Version  : 0.2.4
-Release  : 1
+Release  : 2
 URL      : http://archive.xfce.org/src/apps/xfce4-notifyd/0.2/xfce4-notifyd-0.2.4.tar.bz2
 Source0  : http://archive.xfce.org/src/apps/xfce4-notifyd/0.2/xfce4-notifyd-0.2.4.tar.bz2
 Summary  : No detailed summary available
@@ -25,6 +25,7 @@ BuildRequires : pkgconfig(libxfce4ui-1)
 BuildRequires : pkgconfig(libxfce4util-1.0)
 BuildRequires : pkgconfig(libxfconf-0)
 BuildRequires : pkgconfig(x11)
+Patch1: 0001-xfce4-notify-Set-the-default-theme-to-Arc.patch
 
 %description
 Xfce Notify Daemon
@@ -70,6 +71,7 @@ locales components for the xfce4-notifyd package.
 
 %prep
 %setup -q -n xfce4-notifyd-0.2.4
+%patch1 -p1
 
 %build
 %configure --disable-static
