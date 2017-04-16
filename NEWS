@@ -2,6 +2,121 @@
 | Xfce Notify Daemon |
 +--------------------+
 
+Version 0.3.6 (20 March 2017):
+  This is a bugfix release. Thanks to Mattias and Igor!
+
+  Bugs fixed:
+    * Fix memory leaks in log viewer (Bug #13400)
+    * Fix a couple of memory leaks in notifyd-config (Bug #13386)
+    * Update log toolbar buttons sensitivity (Bug #13365)
+    * Fix compilation on Gtk3.14
+
+  Updated translations: Catalan, French, Greek, Hebrew, Kazakh, Lithuanian,
+  Polish, Serbian
+
+
+Version 0.3.5 (13 February 2017):
+  This is a feature release.
+
+  Features:
+    * Notification log ("persistence" according to fd.o spec)
+    * Rework settings dialog and include more options
+
+  Bugs fixed:
+    * Fix height of settings dialog when plugged
+    * Fix compilation on 3.14
+
+  Updated translations: Bulgarian, Chinese (China), Chinese (Taiwan),
+  Croatian, Czech, Danish, Dutch (Flemish), Finnish, French, German,
+  Icelandic, Italian, Korean, Lithuanian, Norwegian Bokmål, Polish,
+  Portuguese, Portuguese (Brazilian), Russian, Serbian, Slovak, Spanish,
+  Swedish, Ukrainian
+
+
+Version 0.3.4 (09 November 2016):
+  This is a feature release.
+
+  Features:
+    * "Do not disturb" mode
+    * Notification-muting on a per application level
+
+  Bugs fixed:
+    * Add hidden option "primary-monitor" to set screen for notifications
+      (Bug #10003)
+    * Fix theming issues with Gtk 3.22
+
+  Updated translations: Bulgarian, Catalan, Chinese (China), Chinese
+  (Taiwan), Croatian, Czech, Dutch (Flemish), English (Australia), French,
+  German, Hebrew, Kazakh, Lithuanian, Malay, Polish, Portuguese, Portuguese
+  (Brazilian), Russian, Slovak, Spanish, Ukrainian
+
+
+Version 0.3.3 (02 October 2016):
+  This is a bugfix release. It also extends the tests to icons.
+
+  Bugs fixed:
+    * Fix missing Gtk+ themes path in dist_themes variable (Bug #12831)
+    * Fix theming for callback button in notifications (Bug #12841)
+    * Don't show notification buttons without text (Bug #12834)
+    * Support image-path hint of the fd.o spec (Bug #7846)
+    * Fix priorities of icon handling according to the fd.o spec
+    * Make icon-size of fallback consistent with all other notifications
+
+  Updated translations: Croatian, Lithuanian, Malay, Thai
+
+Version 0.3.2 (06 September 2016):
+  This release fixes a showstopper regression for Gtk<=3.18 users where
+  no notifications would be displayed (Bug #12823).
+
+  Features:
+    * Add support for symbolic icons
+    * Add two new themes: Bright and Retro
+    * Improvements to the existing themes
+
+  Bugs fixed:
+    * Fix client pointer with Gtk+ < 3.20 (Bug #12823)
+    * Sort the themes alphabetically in the Settings Dialog
+
+  Updated translations: Polish
+
+Version 0.3.1 (06 September 2016):
+  Bugfix release
+
+  Features:
+    * Add a help button which links to the new docs page
+
+  Bugs fixed:
+    * Fix a memory leak (Bug #12733)
+    * Add a hidden option 'do-fadeout' (Bug #11341)
+    * Correct typo in warning message.
+    * Unreference gvariants, Cleanup Gtk3.20 ifdefs, Fix uninitialized
+      pixbufs (Bug #12777)
+    * Fix including both GTK+ themes in dist (Bug #12737)
+
+  Updated translations: Chinese (China), Croatian, English (Australia),
+  Japanese, Korean, Spanish, Swedish, Ukrainian
+
+Version 0.3.0 (27 July 2016):
+  Ported to gdbus and Gtk+3 by Ali Abdallah
+  Bumped Dependencies (libxfce4ui 4.12, Gtk+3.14)
+
+  Features:
+    * Better theming capabilities
+    * Add a systemd user unit corresponding to the D-Bus session
+      service (Bug #12238)
+
+  Bugs fixed:
+    * The preview button now shows even when the dialog is plugged in
+      the xfce4-settings-manager
+    * On update reset fade as well (Bug #11858)
+
+  Updated translations: Arabic, Asturian, Bulgarian, Catalan, Chinese
+  (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch (Flemish),
+  English (Australia), Finnish, French, German, Greek, Hebrew, Hungarian,
+  Icelandic, Indonesian, Italian, Japanese, Kazakh, Korean, Lithuanian,
+  Norwegian Bokmål, Polish, Portuguese, Portuguese (Brazilian), Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Turkish, Ukrainian, Uyghur
+
 Version 0.2.4 (08 May 2013):
 
   Bugs fixed:
@@ -15,7 +130,7 @@ Version 0.2.3 (21 April 2013):
   libnotify is now required as a dependency to build a test suite and to
   show improved notification previews.
 
-  Features:
+  Features:o   
     * Add a category to the settings dialog for Xfce4 Settings Manager.
     * Add widget names to summary ("summary") and body ("body") widgets
       to allow easier theming. Remove the redundant / buggy summary-bold
