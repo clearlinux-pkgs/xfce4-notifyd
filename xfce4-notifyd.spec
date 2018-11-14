@@ -4,7 +4,7 @@
 #
 Name     : xfce4-notifyd
 Version  : 0.4.3
-Release  : 12
+Release  : 13
 URL      : http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.3.tar.bz2
 Source0  : http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.3.tar.bz2
 Summary  : No detailed summary available
@@ -19,6 +19,7 @@ Requires: xfce4-notifyd-man = %{version}-%{release}
 Requires: xfce4-notifyd-services = %{version}-%{release}
 BuildRequires : intltool
 BuildRequires : libX11-dev
+BuildRequires : pkgconfig(dbus-glib-1)
 BuildRequires : pkgconfig(gio-2.0)
 BuildRequires : pkgconfig(gio-unix-2.0)
 BuildRequires : pkgconfig(gtk+-3.0)
@@ -112,7 +113,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1540764782
+export SOURCE_DATE_EPOCH=1542230572
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -124,7 +125,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1540764782
+export SOURCE_DATE_EPOCH=1542230572
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xfce4-notifyd
 cp COPYING %{buildroot}/usr/share/package-licenses/xfce4-notifyd/COPYING
