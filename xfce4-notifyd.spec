@@ -4,7 +4,7 @@
 #
 Name     : xfce4-notifyd
 Version  : 0.4.4
-Release  : 19
+Release  : 20
 URL      : http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.4.tar.bz2
 Source0  : http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.4.tar.bz2
 Summary  : No detailed summary available
@@ -102,37 +102,38 @@ services components for the xfce4-notifyd package.
 
 %prep
 %setup -q -n xfce4-notifyd-0.4.4
+cd %{_builddir}/xfce4-notifyd-0.4.4
 %patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1562017827
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1604599345
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1562017827
+export SOURCE_DATE_EPOCH=1604599345
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xfce4-notifyd
-cp COPYING %{buildroot}/usr/share/package-licenses/xfce4-notifyd/COPYING
+cp %{_builddir}/xfce4-notifyd-0.4.4/COPYING %{buildroot}/usr/share/package-licenses/xfce4-notifyd/dfac199a7539a404407098a2541b9482279f690d
 %make_install
 %find_lang xfce4-notifyd
 
@@ -170,7 +171,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/xfce4-notifyd/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xfce4-notifyd/COPYING
+/usr/share/package-licenses/xfce4-notifyd/dfac199a7539a404407098a2541b9482279f690d
 
 %files man
 %defattr(0644,root,root,0755)
