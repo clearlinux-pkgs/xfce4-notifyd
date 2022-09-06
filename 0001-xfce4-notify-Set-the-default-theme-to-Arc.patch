@@ -1,4 +1,4 @@
-From a5740f99b385c56e70b8a92d80f668718a3d706d Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <michael.i.doherty@intel.com>
 Date: Mon, 7 Mar 2016 08:25:51 +0000
 Subject: [PATCH] xfce4-notify: Set the default theme to Arc
@@ -10,23 +10,23 @@ Signed-off-by: Ikey Doherty <michael.i.doherty@intel.com>
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/xfce4-notifyd-config/main.c b/xfce4-notifyd-config/main.c
-index b0f6d26..9363882 100644
+index be0495c..d609864 100644
 --- a/xfce4-notifyd-config/main.c
 +++ b/xfce4-notifyd-config/main.c
-@@ -278,7 +278,7 @@ xfce4_notifyd_config_setup_dialog(GtkBuilder *builder)
-                            G_OBJECT(adj), "value");
+@@ -1011,7 +1011,7 @@ xfce4_notifyd_config_setup_dialog(GtkBuilder *builder)
  
+     // Appearance
      theme_combo = GTK_WIDGET(gtk_builder_get_object(builder, "theme_combo"));
 -    current_theme = xfconf_channel_get_string(channel, "/theme", "Default");
 +    current_theme = xfconf_channel_get_string(channel, "/theme", "Arc");
      xfce4_notifyd_config_setup_theme_combo(theme_combo, current_theme);
      g_free(current_theme);
- 
+     g_signal_connect(G_OBJECT(theme_combo), "changed",
 diff --git a/xfce4-notifyd/xfce-notify-daemon.c b/xfce4-notifyd/xfce-notify-daemon.c
-index ec2972a..86f6ef7 100644
+index 94fdf86..2b42f91 100644
 --- a/xfce4-notifyd/xfce-notify-daemon.c
 +++ b/xfce4-notifyd/xfce-notify-daemon.c
-@@ -1193,7 +1193,7 @@ xfce_notify_daemon_settings_changed(XfconfChannel *channel,
+@@ -1498,7 +1498,7 @@ xfce_notify_daemon_settings_changed(XfconfChannel *channel,
          xfce_notify_daemon_set_theme(xndaemon,
                                       G_VALUE_TYPE(value)
                                       ? g_value_get_string(value)
@@ -35,7 +35,7 @@ index ec2972a..86f6ef7 100644
      } else if(!strcmp(property, "/notify-location")) {
          xndaemon->notify_location = G_VALUE_TYPE(value)
                                    ? g_value_get_uint(value)
-@@ -1261,7 +1261,7 @@ xfce_notify_daemon_load_config(XfceNotifyDaemon *xndaemon,
+@@ -1558,7 +1558,7 @@ xfce_notify_daemon_load_config (XfceNotifyDaemon *xndaemon,
                                                          0.9);
  
      theme = xfconf_channel_get_string(xndaemon->settings,
@@ -44,6 +44,3 @@ index ec2972a..86f6ef7 100644
      xfce_notify_daemon_set_theme(xndaemon, theme);
      g_free(theme);
  
--- 
-2.7.1
-
