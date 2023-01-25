@@ -1,1 +1,2 @@
-Configure miss: main in -lX11
+Configure miss: optional package gtk-layer-shell-0 >= 0.7.0
+Configure miss: optional package libcanberra-gtk3 >= 0.30
