@@ -4,10 +4,10 @@
 # Using build pattern: configure
 #
 Name     : xfce4-notifyd
-Version  : 0.9.0
-Release  : 29
-URL      : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.0.tar.bz2
-Source0  : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.0.tar.bz2
+Version  : 0.9.1
+Release  : 30
+URL      : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.1.tar.bz2
+Source0  : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.1.tar.bz2
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -17,6 +17,7 @@ Requires: xfce4-notifyd-lib = %{version}-%{release}
 Requires: xfce4-notifyd-license = %{version}-%{release}
 Requires: xfce4-notifyd-locales = %{version}-%{release}
 Requires: xfce4-notifyd-man = %{version}-%{release}
+Requires: xfce4-notifyd-services = %{version}-%{release}
 BuildRequires : buildreq-configure
 BuildRequires : gettext
 BuildRequires : perl(XML::Parser)
@@ -50,6 +51,7 @@ Summary: bin components for the xfce4-notifyd package.
 Group: Binaries
 Requires: xfce4-notifyd-data = %{version}-%{release}
 Requires: xfce4-notifyd-license = %{version}-%{release}
+Requires: xfce4-notifyd-services = %{version}-%{release}
 
 %description bin
 bin components for the xfce4-notifyd package.
@@ -97,11 +99,20 @@ Group: Default
 man components for the xfce4-notifyd package.
 
 
+%package services
+Summary: services components for the xfce4-notifyd package.
+Group: Systemd services
+Requires: systemd
+
+%description services
+services components for the xfce4-notifyd package.
+
+
 %prep
-%setup -q -n xfce4-notifyd-0.9.0
-cd %{_builddir}/xfce4-notifyd-0.9.0
+%setup -q -n xfce4-notifyd-0.9.1
+cd %{_builddir}/xfce4-notifyd-0.9.1
 pushd ..
-cp -a xfce4-notifyd-0.9.0 buildavx2
+cp -a xfce4-notifyd-0.9.1 buildavx2
 popd
 
 %build
@@ -109,7 +120,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695160676
+export SOURCE_DATE_EPOCH=1695226999
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -141,7 +152,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1695160676
+export SOURCE_DATE_EPOCH=1695226999
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xfce4-notifyd
 cp %{_builddir}/xfce4-notifyd-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xfce4-notifyd/4cc77b90af91e615a64ae04893fdffa7939db84c || :
@@ -192,6 +203,10 @@ popd
 %files man
 %defattr(0644,root,root,0755)
 /usr/share/man/man1/xfce4-notifyd-config.1
+
+%files services
+%defattr(-,root,root,-)
+/usr/lib/systemd/user/xfce4-notifyd.service
 
 %files locales -f xfce4-notifyd.lang
 %defattr(-,root,root,-)
