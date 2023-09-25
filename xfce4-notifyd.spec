@@ -4,10 +4,10 @@
 # Using build pattern: configure
 #
 Name     : xfce4-notifyd
-Version  : 0.9.1
-Release  : 30
-URL      : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.1.tar.bz2
-Source0  : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.1.tar.bz2
+Version  : 0.9.2
+Release  : 31
+URL      : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.2.tar.bz2
+Source0  : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.2.tar.bz2
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -109,10 +109,10 @@ services components for the xfce4-notifyd package.
 
 
 %prep
-%setup -q -n xfce4-notifyd-0.9.1
-cd %{_builddir}/xfce4-notifyd-0.9.1
+%setup -q -n xfce4-notifyd-0.9.2
+cd %{_builddir}/xfce4-notifyd-0.9.2
 pushd ..
-cp -a xfce4-notifyd-0.9.1 buildavx2
+cp -a xfce4-notifyd-0.9.2 buildavx2
 popd
 
 %build
@@ -120,7 +120,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695226999
+export SOURCE_DATE_EPOCH=1695659442
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -152,7 +152,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1695226999
+export SOURCE_DATE_EPOCH=1695659442
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xfce4-notifyd
 cp %{_builddir}/xfce4-notifyd-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xfce4-notifyd/4cc77b90af91e615a64ae04893fdffa7939db84c || :
