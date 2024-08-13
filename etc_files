@@ -1,0 +1,6 @@
+/etc/:
+/etc/xdg/autostart:
+/etc/xdg:
+autostart
+xdg
+xfce4-notifyd.desktop
