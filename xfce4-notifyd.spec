@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : xfce4-notifyd
-Version  : 0.9.5
-Release  : 34
-URL      : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.5.tar.bz2
-Source0  : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.5.tar.bz2
+Version  : 0.9.6
+Release  : 35
+URL      : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.6.tar.bz2
+Source0  : https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.6.tar.bz2
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -113,10 +113,10 @@ services components for the xfce4-notifyd package.
 
 
 %prep
-%setup -q -n xfce4-notifyd-0.9.5
-cd %{_builddir}/xfce4-notifyd-0.9.5
+%setup -q -n xfce4-notifyd-0.9.6
+cd %{_builddir}/xfce4-notifyd-0.9.6
 pushd ..
-cp -a xfce4-notifyd-0.9.5 buildavx2
+cp -a xfce4-notifyd-0.9.6 buildavx2
 popd
 
 %build
@@ -124,7 +124,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1723590823
+export SOURCE_DATE_EPOCH=1723730792
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -178,7 +178,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1723590823
+export SOURCE_DATE_EPOCH=1723730792
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xfce4-notifyd
 cp %{_builddir}/xfce4-notifyd-%{version}/COPYING %{buildroot}/usr/share/package-licenses/xfce4-notifyd/4cc77b90af91e615a64ae04893fdffa7939db84c || :
